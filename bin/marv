@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+$:.unshift File.expand_path "."
+
+require "eventmachine"
+require "lib/logger"
+require "lib/router"
+require "lib/services"
+require "lib/marvbot"
+
+EM.run do
+  EventMachine::connect "irc.freenode.net", 6667, MarvBot
+end

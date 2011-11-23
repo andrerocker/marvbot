@@ -1,6 +1,6 @@
 require "logger"
 
-module BarrierBot
+module MarvBot
   module Logger
     def logger
       @logger ||= ::Logger.new(STDOUT)
