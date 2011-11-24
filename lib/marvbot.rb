@@ -1,30 +1,19 @@
 module MarvBot
-  include Logger
-  include Router
+  extend self
 
-  def post_init
-    start "marvbot", "andrerocker-dev"
-  end
+  rocker_accessor :server, "irc.freenode.net"
+  rocker_accessor :port, 6667
+  rocker_accessor :channel, "andrerocker-dev"
+  rocker_accessor :nickname, "marvbot"
 
-  def receive_data(message)
-    route message
-  end
-
-  def unbind
-    EventMachine::stop_event_loop
-  end
-
-  private
-    def start(nickname, room)
-      say %( NICK #{nickname}
-             USER #{nickname} 0 * #{nickname.capitalize}
-             JOIN ##{room} )
+  def start(&block)
+    EM.run do
+      instance_exec(self, &block)
+      EventMachine::connect server, port, MarvBot::Handler
     end
+  end
 
-    def say(command)
-      logger.info("raw: #{command}")
-      send_data "#{command}\n"
-    end
+  def register(service)
+    Service.register(service) 
+  end
 end
-
-

@@ -1,12 +1,16 @@
 #!/usr/bin/env ruby
 $:.unshift File.expand_path "."
 
+require "lib/ext/module"
+
 require "eventmachine"
 require "lib/logger"
 require "lib/router"
-require "lib/services"
+require "lib/service"
 require "lib/marvbot"
+require "lib/handler"
 
-EM.run do
-  EventMachine::connect "irc.freenode.net", 6667, MarvBot
+MarvBot.start do |marv|
+  marv.nickname = "roberto_pirata"
+  marv.register Ping
 end

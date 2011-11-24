@@ -1,10 +1,10 @@
 module MarvBot
   module Router
     def route(message_bundle)
-      messages(message_bundle).each do |message|
+      messages(message_bundle).select do |message|
         logger.info message
         services.select do |service|
-          service if service.respond message
+          service.respond message
         end
       end
     end
@@ -15,7 +15,7 @@ module MarvBot
       end
 
       def services
-        Services.registered
+        Service.registered
       end
   end
 end
