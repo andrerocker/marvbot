@@ -4,8 +4,10 @@ $:.unshift File.expand_path "."
 require "lib/ext/module"
 
 require "eventmachine"
+require "lib/irc"
 require "lib/logger"
 require "lib/router"
+require "lib/plugin"
 require "lib/service"
 require "lib/marvbot"
 require "lib/handler"
@@ -13,4 +15,5 @@ require "lib/handler"
 MarvBot.start do |marv|
   marv.nickname = "roberto_pirata"
   marv.register Ping
+  marv.register Log
 end

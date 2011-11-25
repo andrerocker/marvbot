@@ -4,7 +4,7 @@ module MarvBot
     rocker_accessor :registered, []
 
     def register(service)
-      @registered << service 
+      @registered << service
     end
   end
 end

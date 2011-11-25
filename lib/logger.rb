@@ -2,7 +2,7 @@ require "logger"
 
 module MarvBot
   module Logger
-    def logger
+    def log
       @logger ||= ::Logger.new(STDOUT)
     end
   end
