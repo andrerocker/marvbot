@@ -3,7 +3,8 @@ module MarvBot
     def route(message_bundle)
       routed = []
       messages(message_bundle).each do |message|
-        routed = (services.collect do |service|
+        routed << (services.collect do |service|
+          accepted = service.accept? message
           service.new message if service.accept? message
         end).delete_if {|service| service.nil?}
       end
