@@ -1,8 +1,7 @@
 class Ping < MarvBot::Plugin
-  accept /PING :(.*)$/
+  match /PING :(.*)$/
 
   def execute
-    log.info "processando requisicao de PING"
-    "PONG #{$1}"
+    "PONG #{matched[0][0].chomp}"
   end
 end

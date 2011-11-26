@@ -9,9 +9,11 @@ module MarvBot
     end
 
     def receive_data(message)
-      route(message).each do |service|
-        response = service.execute
-        irc response if response
+      route(message).each do |category|
+        category.each do |service|
+          response = service.execute
+          irc response if response
+        end
       end
     end
 

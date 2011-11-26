@@ -1,6 +1,6 @@
 class Log < MarvBot::Plugin
-  accept :all
-
+  match :all
+  
   def execute
     log.info message
     nil

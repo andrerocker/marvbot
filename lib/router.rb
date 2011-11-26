@@ -2,12 +2,12 @@ module MarvBot
   module Router
     def route(message_bundle)
       routed = []
-      messages(message_bundle).each do |message|
+      (messages(message_bundle).each do |message|
         routed << (services.collect do |service|
-          accepted = service.accept? message
-          service.new message if service.accept? message
+          matched = service.match?(message)
+          service.new(message, matched) if matched
         end).delete_if {|service| service.nil?}
-      end
+      end).delete_if {|service| service.nil?}
       routed
     end
 
