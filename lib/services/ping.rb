@@ -2,6 +2,8 @@ class Ping < MarvBot::Plugin
   match /PING :(.*)$/
 
   def execute
-    "PONG #{matched[0][0].chomp}"
+    command = "PONG #{matched[0][0].chomp}"
+    log.info command
+    command
   end
 end
