@@ -1,6 +1,7 @@
 module MarvBot
+  include MarvBot::Logger
   extend self
-
+  
   rocker_accessor :server, "irc.freenode.net"
   rocker_accessor :port, 6667
   rocker_accessor :channel, "andrerocker-dev"
@@ -9,6 +10,7 @@ module MarvBot
   def start(&block)
     EM.run do
       instance_exec(self, &block)
+      log.info "Init [server: #{server} port: #{port} channel: #{channel} nickname: #{nickname}]"
       EventMachine::connect server, port, MarvBot::Handler
     end
   end
