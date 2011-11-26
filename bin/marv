@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 $:.unshift File.expand_path "."
 
+require "eventmachine"
 require "lib/ext/module"
 
-require "eventmachine"
 require "lib/irc"
 require "lib/logger"
 require "lib/router"
@@ -12,8 +12,9 @@ require "lib/service"
 require "lib/marvbot"
 require "lib/handler"
 
+
 MarvBot.start do |marv|
-  marv.nickname = "roberto_pirata"
+  marv.nickname = "rockerbot"
   marv.register Log
   marv.register Ping
 end
