@@ -7,7 +7,6 @@ module MarvBot
     end
 
     def irc(command)
-      log.debug command
       send_data "#{command}\n"
     end
   end
