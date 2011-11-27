@@ -1,6 +1,7 @@
 module MarvBot
   module IRC
     include MarvBot::Router
+    include MarvBot::Logger
     
     def start(nickname, room)
       irc %( NICK #{nickname}
