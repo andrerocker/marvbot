@@ -1,7 +1,6 @@
 module MarvBot
   module Handler
     include IRC
-    include Router
     include Logger
 
     def post_init
@@ -9,16 +8,11 @@ module MarvBot
     end
 
     def receive_data(message)
-      route(message).each do |category|
-        category.each do |service|
-          response = service.execute
-          irc response if response
-        end
-      end
+      interact message
     end
 
     def unbind
-      EventMachine::stop_event_loop
+      stop
     end
   end
 end
