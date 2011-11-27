@@ -1,7 +1,6 @@
 module MarvBot
   module Handler
     include IRC
-    include Logger
 
     def post_init
       start MarvBot.nickname, MarvBot.channel

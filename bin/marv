@@ -4,7 +4,6 @@ $:.unshift File.expand_path "."
 require "eventmachine"
 require "lib/ext/module"
 
-
 require "lib/logger"
 require "lib/router"
 require "lib/irc"
