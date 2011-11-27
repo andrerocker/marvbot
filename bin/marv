@@ -13,9 +13,7 @@ require "lib/service"
 require "lib/marvbot"
 require "lib/handler"
 
-
 MarvBot.start do |marv|
   marv.nickname = "marvelous-bot"
-  marv.register Log
-  marv.register Ping
+  marv.register Log, Ping
 end

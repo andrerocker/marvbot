@@ -10,12 +10,15 @@ module MarvBot
   def start(&block)
     EM.run do
       instance_exec(self, &block)
-      log.info "Init [server: #{server} port: #{port} channel: #{channel} nickname: #{nickname}]"
+      log.info "conectando [server: #{server} port: #{port} channel: #{channel} nickname: #{nickname}]"
       EM.connect server, port, MarvBot::Handler
     end
   end
 
-  def register(service)
-    Service.register(service)
+  def register(*services)
+    services.each do |service|
+      log.debug "registrando service: #{service}"
+      Service.register(service)
+    end
   end
 end
