@@ -11,11 +11,11 @@ module MarvBot
     EM.run do
       instance_exec(self, &block)
       log.info "Init [server: #{server} port: #{port} channel: #{channel} nickname: #{nickname}]"
-      EventMachine::connect server, port, MarvBot::Handler
+      EM.connect server, port, MarvBot::Handler
     end
   end
 
   def register(service)
-    Service.register(service) 
+    Service.register(service)
   end
 end
