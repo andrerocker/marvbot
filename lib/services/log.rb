@@ -3,6 +3,5 @@ class Log < MarvBot::Plugin
   
   def execute
     log.info message
-    nil
   end
 end
