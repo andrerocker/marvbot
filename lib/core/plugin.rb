@@ -1,12 +1,32 @@
 module MarvBot
+  # Modulo bizarro que implementei para criar um metodo de log personalizado
+  # para cada "Plugin", assim o output fica mais direcionado em qual modulo
+  # realizou aquele processamento
+  module Poison
+    def poison
+      eval <<-HACK
+        def log.info(message)
+          super "[#{self.class.name}] \#{message}"
+        end
+        
+        def log.debug(message)
+          super "[#{self.class.name}] \#{message}"
+        end
+      HACK
+    end
+  end
+  
   class Plugin
-    include Logger
     attr_accessor :message
     attr_accessor :matched
+    
+    include Logger
+    include Poison
 
     def initialize(message, matched)
       @message = message
       @matched = matched
+      poison
     end
 
     class << self
