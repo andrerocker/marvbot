@@ -13,7 +13,10 @@ module MarvBot
       route(message).each do |category|
         category.each do |service|
           response = service.execute
-          irc response if response
+          if response.is_a? String
+            service.log.debug response
+            irc response
+          end
         end
       end
     end
