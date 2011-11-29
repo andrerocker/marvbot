@@ -14,7 +14,7 @@ module MarvBot
         category.each do |service|
           response = service.execute
           if response.is_a? String
-            service.log.debug response
+            service.log.info response
             irc response
           end
         end

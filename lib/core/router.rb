@@ -5,7 +5,7 @@ module MarvBot
       messages(message_bundle).each do |message|
         routed << (services.collect do |service|
           matched = service.match?(message)
-          service.new(message, matched) if matched
+          service.new(message, matched.first) if matched
         end).compact
       end
       routed

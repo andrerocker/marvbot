@@ -37,7 +37,7 @@ module MarvBot
       end
 
       def match?(message)
-        return :all if regex.eql? :all
+        return [] if regex.eql? :all
         result = message.scan(regex)
         return false if result.empty?
         result

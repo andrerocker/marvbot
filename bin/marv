@@ -14,5 +14,5 @@ require "lib/core/handler"
 
 MarvBot.start do |marv|
   marv.nickname = "marvelous-bot"
-  marv.register Log, Ping
+  marv.register Log, Ping, Hello
 end
