@@ -17,7 +17,7 @@ module MarvBot
 
   def register(*services)
     services.each do |service|
-      log.debug "registrando service: #{service}"
+      log.debug "registrando service: #{service} regex: #{service.regex}"
       Service.register(service)
     end
   end
