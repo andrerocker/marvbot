@@ -1,7 +1,7 @@
 class Hello < MarvBot::Plugin
-  match /:([^!]+)!.*JOIN #(.*)$/
+  match /:#{MarvBot.nickname}!.*JOIN #(.*)$/
   
   def execute
-    "PRIVMSG ##{matched[1]} :Iaeee Favela!"
+    "PRIVMSG ##{matched[0]} :Iaeee Galera"
   end
 end
