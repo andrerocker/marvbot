@@ -2,7 +2,9 @@
 $:.unshift File.expand_path "."
 
 require "eventmachine"
+
 require "lib/ext/module"
+require "lib/ext/string"
 
 require "lib/core/logger"
 require "lib/core/router"
