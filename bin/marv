@@ -8,9 +8,9 @@ require "lib/core/logger"
 require "lib/core/router"
 require "lib/core/irc"
 require "lib/core/plugin"
-require "lib/core/service"
 require "lib/core/marvbot"
 require "lib/core/handler"
+require "lib/core/service"
 
 MarvBot.start do |marv|
   marv.nickname = "marvelous-bot"
