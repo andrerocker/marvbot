@@ -10,5 +10,6 @@ module MarvBot
 end
 
 Dir[File.expand_path("./lib/services/**")].each do |file|
-  require file
+  clazz = File.basename(file).gsub(/.rb$/, '').camelize
+  autoload clazz, file
 end
