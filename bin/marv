@@ -16,5 +16,5 @@ require "lib/core/service"
 
 MarvBot.start do |marv|
   marv.nickname = "marvelous-bot"
-  marv.register Log, Ping, Hello
+  marv.register Log, Ping, Hello, Troll
 end
