@@ -4,8 +4,13 @@ module MarvBot
     extend self
     rocker_accessor :registered, []
 
-    def register(service)
-      @registered << service
+    def register(*services)
+      services.each do |service|
+        if service.class.eql? Class
+          log.debug "registrando service: #{service} regex: #{service.regex}"
+          @registered << service
+        end
+      end
     end
   end
 end
