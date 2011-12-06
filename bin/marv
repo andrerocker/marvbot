@@ -5,8 +5,8 @@ require "eventmachine"
 
 require "lib/ext/module"
 require "lib/ext/string"
+require "lib/ext/basic_object"
 
-require "lib/core/logger"
 require "lib/core/router"
 require "lib/core/irc"
 require "lib/core/plugin"
