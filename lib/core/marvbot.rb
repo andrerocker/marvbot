@@ -1,6 +1,5 @@
 # encoding: utf-8
 module MarvBot
-  include MarvBot::Logger
   extend self
 
   rocker_accessor :server, "irc.freenode.net"
@@ -17,9 +16,6 @@ module MarvBot
   end
 
   def register(*services)
-    services.each do |service|
-      log.debug "registrando service: #{service} regex: #{service.regex}"
-      Service.register(service)
-    end
+    Service.send(:register, *services)
   end
 end
