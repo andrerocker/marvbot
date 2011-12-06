@@ -21,7 +21,6 @@ module MarvBot
     attr_accessor :message
     attr_accessor :matched
 
-    include Logger
     include Poison
 
     def initialize(message, matched)
