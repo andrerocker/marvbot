@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Hello < MarvBot::Plugin
   match /:#{MarvBot.nickname}!.*JOIN #(.*)$/
 

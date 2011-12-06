@@ -1,3 +1,4 @@
+# encoding: utf-8
 module MarvBot
   # Modulo bizarro que implementei para criar um metodo de log personalizado
   # para cada "Plugin", assim o output fica mais direcionado em qual modulo

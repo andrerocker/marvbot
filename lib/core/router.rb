@@ -1,3 +1,4 @@
+# encoding: utf-8
 module MarvBot
   module Router
     def route(message_bundle)

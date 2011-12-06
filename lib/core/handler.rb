@@ -1,3 +1,4 @@
+# encoding: utf-8
 module MarvBot
   module Handler
     include IRC

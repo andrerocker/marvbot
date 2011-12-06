@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Module
   def rocker_accessor(sym, value)
     attr_accessor sym

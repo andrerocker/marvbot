@@ -1,7 +1,8 @@
+# encoding: utf-8
 module MarvBot
   include MarvBot::Logger
   extend self
-  
+
   rocker_accessor :server, "irc.freenode.net"
   rocker_accessor :port, 6667
   rocker_accessor :channel, "andrerocker-dev"

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Ping < MarvBot::Plugin
   match /PING :(.*)$/
 
