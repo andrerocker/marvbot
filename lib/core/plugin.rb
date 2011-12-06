@@ -8,18 +8,18 @@ module MarvBot
         def log.info(message)
           super "[#{self.class.name}] \#{message}"
         end
-        
+
         def log.debug(message)
           super "[#{self.class.name}] \#{message}"
         end
       HACK
     end
   end
-  
+
   class Plugin
     attr_accessor :message
     attr_accessor :matched
-    
+
     include Logger
     include Poison
 
@@ -38,8 +38,8 @@ module MarvBot
 
       def match?(message)
         return [] if regex.eql? :all
-        result = message.scan(regex)
-        return false if result.empty?
+        result = message.match(regex)
+        return false if result.nil?
         result
       end
     end
