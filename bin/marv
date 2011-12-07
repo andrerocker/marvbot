@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 $:.unshift File.expand_path "."
 
+require "logger"
 require "eventmachine"
-require "lib/ext/basic_object"
-require "lib/ext/string"
 
+require "lib/ext/ruby"
 require "lib/core/executor"
 require "lib/core/router"
 require "lib/core/irc"
