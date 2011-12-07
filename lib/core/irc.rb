@@ -2,6 +2,7 @@
 module MarvBot
   module IRC
     include MarvBot::Router
+    include MarvBot::Executor
 
     def start(nickname, room)
       irc %( NICK #{nickname}
@@ -12,11 +13,7 @@ module MarvBot
     def interact(message)
       route(message).each do |category|
         category.each do |service|
-          response = service.execute
-          if response.is_a? String
-            service.log.info response
-            irc response
-          end
+          process service
         end
       end
     end
