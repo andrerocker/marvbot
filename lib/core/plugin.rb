@@ -29,6 +29,12 @@ module MarvBot
       poison
     end
 
+    def deferred
+      Proc.new do
+        self.execute
+      end
+    end
+
     class << self
       attr_accessor :regex
 
